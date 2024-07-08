@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Submitted Data</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    </head>
+<body>
+    <header>
+        <h1>Submitted Form Data</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/form">Form</a></li>
+                <li><a href="/display/">Display Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="data-container">
+        {% for entry in data %}
+        <div class="entry">
+            <h3>{{ entry.FullName }}</h3>
+            <p><strong>Email:</strong> {{ entry.Email }}</p>
+            <p><strong>Phone Number:</strong> {{ entry.PhoneNo }}</p>
+            <p><strong>Message:</strong> {{ entry.Message }}</p>
+            <p><strong>Subject:</strong> {{ entry.Subject }}</p>
+        </div>
+        {% empty %}
+        <p>No entries found.</p>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <p>Contact us </p>
+        <p>pkp20500@gmail.com</p>
+        <p>+91 8799474946</p>
+    </footer>
+</body>
+</html>
