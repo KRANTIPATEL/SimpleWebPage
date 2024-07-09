@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+{% include "header.html" %}
 <body>
-    <header>
-        <h1>Simple Form</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/form">Form</a></li>
-                <li><a href="/display/">Display Data</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1> A Simple Form</h1>
+<div class="form-container">
 
-    <div class="form-container">
         <form action="" method="post">
             {% csrf_token %}
             <div class="form-group">
@@ -52,10 +35,5 @@
             </div>
         </form>
     </div>
-    <footer>
-        <p>Contact us</p>
-        <p>pkp20500@gmail.com</p>
-        <p>+91 8799474946</p>
-    </footer>
 </body>
-</html>
+{% include "footer.html" %}
