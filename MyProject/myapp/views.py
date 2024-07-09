@@ -43,11 +43,15 @@ def get_random_quotes():
     return random.choice(quotes)
 
 def display(request):
-
-    data = FormData.objects.all()
-
-    return render (request,"display.html",{'data':data})
-
-
+    if 'search' in request.GET:
+        search_term = request.GET.get('search')
+        filtered_data = FormData.objects.filter(FullName__icontains=search_term)
+    else:
+        filtered_data = FormData.objects.all()
+    
+    context = {
+        'filtered_data': filtered_data
+    }
+    return render(request, 'display.html', context)
 
 # Create your views here.
